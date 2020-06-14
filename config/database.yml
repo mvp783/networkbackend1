@@ -38,3 +38,6 @@ test:
 production:
   <<: *default
   database: production_bk
+  username: production_bk
+  password: <%= ENV['PRODUCTION_BK_DATABASE_PASSWORD'] %>
+
