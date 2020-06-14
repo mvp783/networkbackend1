@@ -6,23 +6,23 @@
 #  username: ninadfaterpekar
 #  password: netwrk@123
 
-default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: root
-  socket: /var/run/mysqld/mysqld.sock
-
 # default: &default
-#   adapter: postgresql
-#   encoding: unicode
-#   pool: 5
-#   timeout: 5000
-#   username: postgres
-#   password: password
-#   host: localhost
-#   port: 5432
+#   adapter: mysql2
+#   encoding: utf8
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   username: root
+#   password: root
+#   socket: /var/run/mysqld/mysqld.sock
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  username: postgres
+  password: password
+  host: localhost
+  port: 5432
 
 development:
   <<: *default
@@ -35,11 +35,11 @@ test:
   <<: *default
   database: test_bk
 
-# production:
-#   <<: *default
-#   database: production_bk
-#   username: production_bk
-#   password: <%= ENV['PRODUCTION_BK_DATABASE_PASSWORD'] %>
+production:
+  <<: *default
+  database: production_bk
+  username: production_bk
+  password: <%= ENV['PRODUCTION_BK_DATABASE_PASSWORD'] %>
 
 # production:
 #   <<: *default
@@ -50,7 +50,7 @@ test:
 #   password: root
 #   host: 'localhost'
 
-production:
-  <<: *default
-  url: <%= ENV['DATABASE_URL'] %>  
+# production:
+#   <<: *default
+#   url: <%= ENV['DATABASE_URL'] %>  
 
