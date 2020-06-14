@@ -41,12 +41,16 @@ test:
 #   username: production_bk
 #   password: <%= ENV['PRODUCTION_BK_DATABASE_PASSWORD'] %>
 
+# production:
+#   <<: *default
+#   url: <%= ENV['DATABASE_URL'] %>
+#   database: production_bk
+#   pool: 20
+#   username: root
+#   password: root
+#   host: 'localhost'
+
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
-  database: production_bk
-  pool: 20
-  username: root
-  password: root
-  host: 'localhost'
+  url: <%= ENV['DATABASE_URL'] %>  
 
