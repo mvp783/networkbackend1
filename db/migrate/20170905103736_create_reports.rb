@@ -3,7 +3,8 @@ class CreateReports < ActiveRecord::Migration[5.0]
     create_table :reports do |t|
       t.integer :reportable_id
       t.string :reportable_type
-      t.text :reasons, default: [].to_yaml, array:true
+      #t.text :reasons, default: [].to_yaml, array:true
+      t.text :reasons, array: true, default: []
       t.belongs_to :user, index: true
 
       t.timestamps
